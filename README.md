@@ -1,7 +1,7 @@
 ![NodeFactory](banner.png)
 
-# Solidity-NodeJs-Docker-Starter
-![CircleCI branch](https://img.shields.io/circleci/project/github/NodeFactoryIo/solidity-node-docker-starter/master.svg)
+# Solidity-Docker-Starter
+![CircleCI branch](https://img.shields.io/circleci/project/github/NodeFactoryIo/solidity-docker-starter/master.svg)
 
 ## Requirements
 
@@ -15,8 +15,6 @@ all required dependencies for running tasks. Then run `npx run build` which will
 build docker image.
 
 Run `npx run` to see all available commands:
-- node:test                       - Runs nodejs tests
-- node:dev                        - Starts application and all dependent services
 - contracts:clean                 - Delete contract artifacts
 - contracts:deploy                - Run all missing migrations to deploy contracts to ethereum network. Command accepts param with id of network
 - contracts:redeploy              - Run all migrations again to deploy contracts to ethereum network. Command accepts param with id of network
