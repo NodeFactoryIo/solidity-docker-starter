@@ -2,15 +2,12 @@ version: "3"
 services:
   backend:
     build: .
-    command: sh -c "npm run dev"
-    image: nodefactory/solidity-node-docker-starter:${IMAGE_TAG:-latest}
-    container_name: "${BACKEND_CONTAINER_NAME:-backend}"
+    image: nodefactory/solidity-docker-starter:${IMAGE_TAG:-latest}
+    container_name: "${ONTAINER_NAME:-backend}"
     volumes:
           - .:/usr/app
           - node_modules:/usr/app/node_modules
           - contracts:/usr/app/installed_contracts
-    ports:
-          - "${BACKEND_PORT:-3000}:3000"
     depends_on:
           - "ethereum"
   ethereum:

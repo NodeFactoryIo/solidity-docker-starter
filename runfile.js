@@ -1,8 +1,7 @@
 import { run, help } from 'runjs';
-import * as node from './tasks/node';
 import * as contracts from './tasks/contracts';
 
-export { node, contracts };
+export { contracts };
 
 export function clean() {
   contracts.clean();
