@@ -21,6 +21,7 @@ module.exports = {
       gas: 4612388,
       gasPrice: 100000,
       network_id: 3,
+      confirmations: 2,
     },
   },
   mocha: {
@@ -28,6 +29,11 @@ module.exports = {
     reporter: 'mocha-multi-reporters',
     reporterOptions: {
       configFile: './mocha-smart-contracts-config.json',
+    },
+  },
+  compilers: {
+    solc: {
+      version: '0.4.24',
     },
   },
 
