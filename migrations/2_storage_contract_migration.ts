@@ -1,6 +1,9 @@
-let Storage = artifacts.require('./Storage.sol');
+import "@types/node";
+import "truffle-typings";
 
-module.exports = function(deployer) {
+const Storage = artifacts.require("./Storage.sol");
+
+module.exports = function(deployer: Truffle.Deployer) {
   deployer.deploy(Storage);
 } as Truffle.Migration;
 

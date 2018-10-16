@@ -1,7 +1,9 @@
-// eslint-disable-next-line no-undef
-const Migrations = artifacts.require('./Migrations.sol');
+import "@types/node";
+import "truffle-typings";
 
-module.exports = function(deployer) {
+const Migrations = artifacts.require("./Migrations.sol");
+
+module.exports = function(deployer: Truffle.Deployer) {
     deployer.deploy(Migrations);
 } as Truffle.Migration;
 

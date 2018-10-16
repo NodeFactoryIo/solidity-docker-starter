@@ -1,10 +1,11 @@
-/* eslint-disable no-undef */
-let Application = artifacts.require('./Application.sol');
-let Storage = artifacts.require('./Storage.sol');
+import "@types/node";
+import "truffle-typings";
 
-module.exports = function(deployer) {
+const Application = artifacts.require("./Application.sol");
+const Storage = artifacts.require("./Storage.sol");
+
+module.exports = function(deployer: Truffle.Deployer) {
   deployer.deploy(Application, Storage.address);
 } as Truffle.Migration;
 
 export {};
-

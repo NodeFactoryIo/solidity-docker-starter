@@ -1,9 +1,9 @@
 version: "3"
 services:
-  backend:
+  smart-contracts:
     build: .
     image: nodefactory/solidity-docker-starter:${IMAGE_TAG:-latest}
-    container_name: "${ONTAINER_NAME:-backend}"
+    container_name: "${CONTAINER_NAME:-sc}"
     volumes:
           - .:/usr/app
           - node_modules:/usr/app/node_modules

@@ -10,6 +10,7 @@
   "license": "MIT",
   "scripts": {
     "generate": "truffle compile && typechain --target truffle ./build/**/*.json",
+    "lint": "tslint --project ./tsconfig.json --config ./tslint.json",
     "test": "truffle test && yarn tsc",
     "tsc": "tsc --noEmit"
   },
@@ -34,6 +35,7 @@
     "truffle-typings": "^1.0.3",
     "ts-generator": "^0.0.8",
     "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
     "typechain": "^0.3.6",
     "typescript": "^3.1.3"
   },
