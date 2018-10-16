@@ -1,5 +1,4 @@
-// Allows us to use ES6 in our migrations and tests.
-require('babel-register');
+require("ts-node/register");
 require('dotenv').config();
 let HDWalletProvider = require('truffle-hdwallet-provider');
 
@@ -30,5 +29,5 @@ module.exports = {
       configFile: './mocha-smart-contracts-config.json',
     },
   },
-
+  test_file_extension_regexp: /.*\.ts$/,
 };

@@ -1,28 +1,42 @@
-import { help, run } from 'runjs';
+// @ts-ignore
+const {run, help} = require("runjs");
 
 export function clean() {
   run('docker-compose run --rm backend rm -rf build');
+  run('rm -rf node_modules');
 }
 
-export function deploy(env) {
+
+export function lint() {
+  run('docker-compose run --rm backend npm run lint');
+}
+
+export function build() {
+  run('docker-compose down');
+  run('docker-compose -f docker-compose-cleanup.yml down -v');
+  run('docker-compose build');
+}
+
+
+export function deploy(env:string) {
   if (!env) {
     env = 'development';
   }
-  run(`docker-compose run --rm backend truffle migrate --network ${env}`);
+  run(`docker-compose run --rm backend node_modules/.bin/truffle migrate --network ${env}`);
 }
 
-export function redeploy(env) {
+export function redeploy(env:string) {
   if (!env) {
     env = 'development';
   }
   run(
-    `docker-compose run --rm backend truffle migrate --reset --network ${env}`
+    `docker-compose run --rm backend node_modules/.bin/truffle migrate --reset --network ${env}`
   );
 }
 
 export function compile() {
   run(
-    'docker-compose run --no-deps --rm backend truffle "compile --all"'
+    'docker-compose run --no-deps --rm backend sh -c "yarn generate"'
   );
 }
 
@@ -33,13 +47,13 @@ export function solhint() {
   );
 }
 
-export function test(testName) {
+export function test(testName:string) {
   if (!testName) {
     testName = 'test/*';
   }
   solhint();
   run(
-    `docker-compose run --rm backend truffle test ${testName}`
+    `docker-compose run --rm backend node_modules/.bin/truffle test ${testName}`
   );
 }
 
@@ -67,7 +81,6 @@ help(
   'It accepts test name as optional argument'
 );
 
-help(
-  clean,
-  'Delete contract artifacts'
-);
+help(clean, 'Removes all build directories and dependencies');
+help(lint, 'Runs eslint on current project');
+help(build, 'Builds new docker image');

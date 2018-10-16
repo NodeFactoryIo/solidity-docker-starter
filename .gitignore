@@ -211,6 +211,7 @@ typings/
 
 installed_contracts
 build
+types
 
 ### Windows ###
 # Windows thumbnail cache files
