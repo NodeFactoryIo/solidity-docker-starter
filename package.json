@@ -11,6 +11,7 @@
   "scripts": {
     "generate": "truffle compile && typechain --target truffle ./build/**/*.json",
     "lint": "tslint --project ./tsconfig.json --config ./tslint.json",
+    "pretest": "yarn generate",
     "test": "truffle test && yarn tsc",
     "tsc": "tsc --noEmit"
   },
@@ -38,11 +39,5 @@
     "tslint": "^5.11.0",
     "typechain": "^0.3.6",
     "typescript": "^3.1.3"
-  },
-  "runjs": {
-    "requires": [
-      "./node_modules/ts-node/register"
-    ],
-    "runfile": "./runfile.ts"
   }
 }
