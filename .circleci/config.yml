@@ -23,10 +23,10 @@ jobs:
             docker-compose -p ${CIRCLE_PROJECT_REPONAME} build
       - run:
           name: Run solhint on contracts
-          command: docker-compose run --rm backend sh -c "./node_modules/solhint/solhint.js \\"contracts/**/*.sol\\""
+          command: docker-compose run --rm smart-contracts sh -c "./node_modules/solhint/solhint.js \\"contracts/**/*.sol\\""
       - run:
           name: Run contract tests
-          command: docker-compose run --rm backend sh -c "yarn test"
+          command: docker-compose run --rm smart-contracts sh -c "yarn test"
       - run:
           name: Save docker layers cache
           command: |
