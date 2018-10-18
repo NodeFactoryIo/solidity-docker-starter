@@ -26,11 +26,11 @@ jobs:
           command: docker-compose run --rm backend sh -c "./node_modules/solhint/solhint.js \\"contracts/**/*.sol\\""
       - run:
           name: Run contract tests
-          command: docker-compose run --rm backend truffle "test *"
+          command: docker-compose run --rm backend sh -c "yarn test"
       - run:
           name: Save docker layers cache
           command: |
-            docker save -o ~/docker-layers.tar nodefactory/solidity-docker-starter:${CIRCLE_SHA1} trufflesuite/ganache-cli:v6.1.0 node:carbon-alpine
+            docker save -o ~/docker-layers.tar trufflesuite/ganache-cli:v6.1.8 node:carbon-alpine
       - save_cache:
           key: v1-docker-{{ .Branch }}-{{ epoch }}
           paths:

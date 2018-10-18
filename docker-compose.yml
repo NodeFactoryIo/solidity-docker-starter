@@ -11,7 +11,7 @@ services:
     depends_on:
           - "ethereum"
   ethereum:
-    image: trufflesuite/ganache-cli:v6.1.0
+    image: trufflesuite/ganache-cli:v6.1.8
     container_name: "${ETHEREUM_RPC_CONTAINER_NAME:-ethereum-rpc}"
     command: ganache-cli -i ${ETHEREUM_NETWORK_ID:-666}
     ports:
