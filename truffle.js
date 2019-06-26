@@ -9,18 +9,24 @@ module.exports = {
       port: '8545',
       network_id: '*',
     },
-    ropsten: {
+    goerli2: {
       provider: function() {
         return new HDWalletProvider(
-          process.env.ROPSTEN_MNEMONIC,
-          `https://ropsten.infura.io/${process.env.INFURA_ACCESS_TOKEN}`,
-          0
+          process.env.MNEMONIC,
+          `https://goerli.infura.io/v3/${process.env.INFURA_PROJECT_ID}`
         );
       },
       gas: 4612388,
       gasPrice: 100000,
-      network_id: 3,
+      network_id: 5,
+      confirmations: 1, // # of confs to wait between deployments. (default: 0)
+      skipDryRun: false
     },
+  },
+  compilers: {
+    solc: {
+      version: "0.5.9"
+    }
   },
   mocha: {
     useColors: true,

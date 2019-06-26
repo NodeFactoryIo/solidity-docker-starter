@@ -15,3 +15,7 @@ RUN yarn install --frozen-lockfile
 COPY . .
 
 RUN yarn generate
+
+RUN chown -R node: .
+
+USER node

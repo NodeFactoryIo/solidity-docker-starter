@@ -1,11 +1,11 @@
 {
-  "name": "solidity-node-docker-starter",
+  "name": "solidity-docker-starter",
   "description": "Starter project for developing solidity smart contracts using truffle in docker",
   "version": "0.0.1",
   "repository": "git@github.com:NodeFactoryIo/solidity-node-docker-starter.git",
   "contributors": [
     "Marin Petrunić <marin@nodefactory.io>",
-    "Belma gutlić <belma@nodefactory.io"
+    "Belma Gutlić <belma@nodefactory.io"
   ],
   "license": "MIT",
   "scripts": {
@@ -16,7 +16,7 @@
     "tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "truffle": "^4.1.14"
+    "truffle": "5.0.21"
   },
   "devDependencies": {
     "@types/chai": "^4.1.6",
@@ -30,14 +30,14 @@
     "mocha-junit-reporter": "^1.17.0",
     "mocha-multi-reporters": "^1.1.7",
     "runjs": "^4.3.2",
-    "sinon": "^5.0.4",
-    "solhint": "^1.2.1",
-    "truffle-hdwallet-provider": "0.0.5",
-    "truffle-typings": "^1.0.3",
+    "sinon": "7.3.2",
+    "solhint": "1.4.0",
+    "truffle-hdwallet-provider": "1.0.11",
+    "truffle-typings": "1.0.7",
     "ts-generator": "^0.0.8",
     "ts-node": "^7.0.1",
-    "tslint": "^5.11.0",
-    "typechain": "^0.3.6",
-    "typescript": "^3.1.3"
+    "tslint": "5.18.0",
+    "typechain": "0.3.17",
+    "typescript": "3.5.2"
   }
 }

@@ -1,51 +1,49 @@
 // tslint:disable-next-line
 const {run, help} = require("runjs");
 
-
-
-exports.clean = function (){
+exports.clean = function() {
   run("docker-compose run --rm smart-contracts rm -rf build");
   run("rm -rf node_modules");
-}
+};
 
 exports.lint = function() {
   run("docker-compose run --rm smart-contracts yarn lint");
-}
+};
 
 exports.build = function() {
   run("docker-compose down");
   run("docker-compose -f docker-compose-cleanup.yml down -v");
   run("docker-compose build");
-}
+};
 
 exports.deploy = function(env) {
   if (!env) {
     env = "development";
   }
   run(`docker-compose run --rm smart-contracts node_modules/.bin/truffle migrate --network ${env}`);
-}
+};
 
 exports.redeploy = function(env) {
   if (!env) {
     env = "development";
   }
   run(
-    `docker-compose run --rm smart-contracts node_modules/.bin/truffle migrate --reset --network ${env}`,
+    `docker-compose run --rm smart-contracts node_modules/.bin/truffle migrate --reset --debug --verbose --verbose-rpc`,
   );
-}
+};
 
 exports.compile = function() {
   run(
     'docker-compose run --no-deps --rm smart-contracts sh -c "yarn generate"',
   );
-}
+};
 
 exports.solhint = function() {
   run(
     "docker-compose run --rm smart-contracts sh -c " +
     '"./node_modules/solhint/solhint.js \\"contracts/**/*.sol\\""',
   );
-}
+};
 
 exports.test = function(testName) {
   if (!testName) {
@@ -54,7 +52,7 @@ exports.test = function(testName) {
   run(
     `docker-compose run --rm smart-contracts sh -c "yarn generate && node_modules/.bin/truffle test ${testName}"`,
   );
-}
+};
 
 help(
   exports.deploy,
@@ -86,14 +84,14 @@ help(
 
 help(
   exports.clean,
-    "Removes all build directories and dependencies"
+    "Removes all build directories and dependencies",
 );
 
 help(
   exports.lint,
-    "Runs tslint on current project"
+    "Runs tslint on current project",
 );
 help(
   exports.build,
-    "Builds new docker image"
+    "Builds new docker image",
 );
