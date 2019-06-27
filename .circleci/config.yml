@@ -30,7 +30,7 @@ jobs:
       - run:
           name: Save docker layers cache
           command: |
-            docker save -o ~/docker-layers.tar trufflesuite/ganache-cli:v6.1.8 node:carbon-alpine
+            docker save -o ~/docker-layers.tar trufflesuite/ganache-cli:v6.4.4 node:carbon-alpine
       - save_cache:
           key: v1-docker-{{ .Branch }}-{{ epoch }}
           paths:
