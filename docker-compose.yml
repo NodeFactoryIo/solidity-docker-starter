@@ -8,10 +8,11 @@ services:
           - .:/usr/app
           - node_modules:/usr/app/node_modules
           - contracts:/usr/app/installed_contracts
+          - types:/usr/app/types
     depends_on:
           - "ethereum"
   ethereum:
-    image: trufflesuite/ganache-cli:v6.1.8
+    image: trufflesuite/ganache-cli:v6.4.4
     container_name: "${ETHEREUM_RPC_CONTAINER_NAME:-ethereum-rpc}"
     command: ganache-cli -i ${ETHEREUM_NETWORK_ID:-666}
     ports:
@@ -19,4 +20,5 @@ services:
 volumes:
   node_modules:
   contracts:
+  types:
 

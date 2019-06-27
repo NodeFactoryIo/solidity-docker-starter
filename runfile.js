@@ -28,7 +28,7 @@ exports.redeploy = function(env) {
     env = "development";
   }
   run(
-    `docker-compose run --rm smart-contracts node_modules/.bin/truffle migrate --reset --debug --verbose --verbose-rpc`,
+    `docker-compose run --rm smart-contracts node_modules/.bin/truffle migrate --reset`,
   );
 };
 
